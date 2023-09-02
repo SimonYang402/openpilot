@@ -62,7 +62,7 @@ SUPPORTED_FW_VERSIONS = {
   b"TM__ SCC F-CUP      1.00 1.02 99110-S2000\x18\x07\x08\x18W    ": ConfigValues(
     default_config=b"\x00\x00\x00\x01\x00\x00",
     tracks_enabled=b"\x00\x00\x00\x01\x00\x01"),
- # 2020 NEXO
+  # 2020 NEXO
   b'FE__ SCC FHCUP      1.00 1.03 99110-M5000\x19\x05#\x19B    ': ConfigValues(
     "default config": b"\x00\x00\x00\x01\x00\x00",
     "tracks_enabled": b"\x00\x00\x00\x01\x00\x01"),
