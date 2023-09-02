@@ -99,7 +99,8 @@ class CAR:
   TUCSON_4TH_GEN = "HYUNDAI TUCSON 4TH GEN"
   TUCSON_HYBRID_4TH_GEN = "HYUNDAI TUCSON HYBRID 4TH GEN"
   SANTA_CRUZ_1ST_GEN = "HYUNDAI SANTA CRUZ 1ST GEN"
-
+  NEXO = "HYUNDAI NEXO"
+  
   # Kia
   KIA_FORTE = "KIA FORTE E 2018 & GT 2021"
   KIA_K5_2021 = "KIA K5 2021"
@@ -278,6 +279,7 @@ CAR_INFO: Dict[str, Optional[Union[HyundaiCarInfo, List[HyundaiCarInfo]]]] = {
   CAR.GENESIS_G80: HyundaiCarInfo("Genesis G80 2018-19", "All", car_parts=CarParts.common([CarHarness.hyundai_h])),
   CAR.GENESIS_G90: HyundaiCarInfo("Genesis G90 2017-18", "All", car_parts=CarParts.common([CarHarness.hyundai_c])),
   CAR.GENESIS_GV80: HyundaiCarInfo("Genesis GV80 2023", "All", car_parts=CarParts.common([CarHarness.hyundai_m])),
+  CAR.NEXO: HyundaiCarInfo("Hyundai NEXO FCEV 2021", "All", car_parts=CarParts.common([CarHarness.hyundai_h])),
 }
 
 class Buttons:
@@ -363,6 +365,9 @@ FINGERPRINTS = {
   CAR.PALISADE: [{
     67: 8, 127: 8, 304: 8, 320: 8, 339: 8, 356: 4, 544: 8, 546: 8, 547: 8, 548: 8, 549: 8, 576: 8, 593: 8, 608: 8, 688: 6, 809: 8, 832: 8, 854: 7, 870: 7, 871: 8, 872: 8, 897: 8, 902: 8, 903: 8, 905: 8, 909: 8, 913: 8, 916: 8, 1040: 8, 1042: 8, 1056: 8, 1057: 8, 1064: 8, 1078: 4, 1107: 5, 1123: 8, 1136: 8, 1151: 6, 1155: 8, 1156: 8, 1157: 4, 1162: 8, 1164: 8, 1168: 7, 1170: 8, 1173: 8, 1180: 8, 1186: 2, 1191: 2, 1193: 8, 1210: 8, 1225: 8, 1227: 8, 1265: 4, 1280: 8, 1287: 4, 1290: 8, 1292: 8, 1294: 8, 1312: 8, 1322: 8, 1342: 6, 1345: 8, 1348: 8, 1363: 8, 1369: 8, 1371: 8, 1378: 8, 1384: 8, 1407: 8, 1419: 8, 1427: 6, 1456: 4, 1470: 8, 1988: 8, 1996: 8, 2000: 8, 2004: 8, 2005: 8, 2008: 8, 2012: 8
   }],
+  CAR.NEXO: [{
+    127: 8, 145: 8, 146: 8, 304: 8, 320: 8, 339: 8, 352: 8, 356: 4, 512: 6, 544: 8, 549: 8, 593: 8, 688: 5, 832: 8, 881: 8, 882: 8, 897: 8, 902: 8, 903: 8, 905: 8, 908: 8, 909: 8, 912: 7, 916: 8, 1056: 8, 1057: 8, 1078: 4, 1136: 8, 1151: 8, 1155: 8, 1156: 8, 1157: 4, 1162: 8, 1164: 8, 1168: 7, 1173: 8, 1174: 8, 1180: 8, 1183: 8, 1186: 2, 1191: 2, 1192: 8, 1193: 8, 1210: 8, 1219: 8, 1220: 8, 1222: 6, 1223: 8, 1224: 8, 1227: 8, 1230: 6, 1231: 6, 1265: 4, 1268: 8, 1280: 1, 1287: 4, 1290: 8, 1291: 8, 1292: 8, 1294: 8, 1297: 8, 1298: 8, 1305: 8, 1312: 8, 1315: 8, 1316: 8, 1322: 8, 1324: 8, 1342: 6, 1345: 8, 1348: 8, 1355: 8, 1363: 8, 1369: 8, 1371: 8, 1407: 8, 1419: 8, 1427: 6, 1429: 8, 1430: 8, 1437: 8, 1456: 4, 1460: 8, 1470: 8, 1484: 8, 1507: 8, 1520: 8, 1535: 8, 1609: 8, 1613: 8, 1649: 8, 1792: 8, 1793: 8, 1798: 8, 1824: 8, 1825: 8, 1840: 8, 1842: 8, 1858: 8, 1860: 8, 1863: 8, 1872: 8, 1875: 8, 1882: 8, 1883: 8, 1888: 8, 1889: 8, 1892: 8, 1899: 8, 1920: 8, 1924: 8, 1937: 8, 1947: 8, 1953: 8, 1968: 8, 1984: 8, 1988: 8, 1996: 8, 2001: 8, 2002: 8, 2017: 8, 2018: 8, 2020: 8
+  }],  
 }
 
 
@@ -1936,6 +1941,23 @@ FW_VERSIONS = {
       b'\xf1\x00MQhe SCC FHCUP      1.00 1.07 99110-P4000         ',
     ],
   },
+  CAR.NEXO: {
+    (Ecu.fwdCamera, 0x7c4, None): [
+      b'\xf1\x00FE  MFC  AT KOR LHD 1.00 1.00 99211-M5100 201218',
+    ],
+    (Ecu.fwdRadar, 0x7d0, None): [
+      b'\xf1\x00FE__ SCC FHCUP      1.00 1.05 99110-M5000         ',
+    ],
+    (Ecu.abs, 0x7d1, None): [
+      b'\xf1\x00FE IEB \x01 312 \x11\x13 58520-M5000',
+    ],
+    (Ecu.eps, 0x7d4, None): [
+      b'\xf1\x00FE  MDPS C 1.00 1.05 56340-M5000 9903',
+    ],
+    (Ecu.parkingAdas, 0x7b1, None): [
+      b'\xf1\x10FE  RSPA ADL 1.00 1.03 99910-M5300',
+    ],    
+  }, 
 }
 
 CHECKSUM = {
@@ -1951,7 +1973,7 @@ CAN_GEARS = {
   "use_elect_gears": {CAR.KIA_NIRO_EV, CAR.KIA_NIRO_PHEV, CAR.KIA_NIRO_HEV_2021, CAR.KIA_OPTIMA_H, CAR.IONIQ_EV_LTD,
                       CAR.KONA_EV, CAR.IONIQ, CAR.IONIQ_EV_2020, CAR.IONIQ_PHEV, CAR.ELANTRA_HEV_2021, CAR.SONATA_HYBRID,
                       CAR.KONA_HEV, CAR.IONIQ_HEV_2022, CAR.SANTA_FE_HEV_2022, CAR.SANTA_FE_PHEV_2022, CAR.IONIQ_PHEV_2019,
-                      CAR.KONA_EV_2022, CAR.KIA_K5_HEV_2020},
+                      CAR.KONA_EV_2022, CAR.KIA_K5_HEV_2020, CAR.NEXO},
 }
 
 CANFD_CAR = {CAR.KIA_EV6, CAR.IONIQ_5, CAR.IONIQ_6, CAR.TUCSON_4TH_GEN, CAR.TUCSON_HYBRID_4TH_GEN, CAR.KIA_SPORTAGE_HYBRID_5TH_GEN,
@@ -1973,7 +1995,7 @@ HYBRID_CAR = {CAR.IONIQ_PHEV, CAR.ELANTRA_HEV_2021, CAR.KIA_NIRO_PHEV, CAR.KIA_N
               CAR.KIA_SORENTO_HEV_4TH_GEN, CAR.KIA_OPTIMA_H}
 
 EV_CAR = {CAR.IONIQ_EV_2020, CAR.IONIQ_EV_LTD, CAR.KONA_EV, CAR.KIA_NIRO_EV, CAR.KIA_NIRO_EV_2ND_GEN, CAR.KONA_EV_2022,
-          CAR.KIA_EV6, CAR.IONIQ_5, CAR.IONIQ_6, CAR.GENESIS_GV60_EV_1ST_GEN, CAR.KONA_EV_2ND_GEN}
+          CAR.KIA_EV6, CAR.IONIQ_5, CAR.IONIQ_6, CAR.GENESIS_GV60_EV_1ST_GEN, CAR.KONA_EV_2ND_GEN, CAR.NEXO}
 
 # these cars require a special panda safety mode due to missing counters and checksums in the messages
 LEGACY_SAFETY_MODE_CAR = {CAR.HYUNDAI_GENESIS, CAR.IONIQ_EV_LTD, CAR.IONIQ_PHEV, CAR.IONIQ, CAR.KONA_EV, CAR.KIA_OPTIMA_G4,
@@ -2046,4 +2068,5 @@ DBC = {
   CAR.KIA_CARNIVAL_4TH_GEN: dbc_dict('hyundai_canfd', None),
   CAR.KIA_SORENTO_HEV_4TH_GEN: dbc_dict('hyundai_canfd', None),
   CAR.KONA_EV_2ND_GEN: dbc_dict('hyundai_canfd', None),
+  CAR.NEXO: dbc_dict('hyundai_kia_generic', 'hyundai_kia_mando_front_radar_generated'),
 }
