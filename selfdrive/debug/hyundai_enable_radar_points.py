@@ -63,9 +63,9 @@ SUPPORTED_FW_VERSIONS = {
     default_config=b"\x00\x00\x00\x01\x00\x00",
     tracks_enabled=b"\x00\x00\x00\x01\x00\x01"),
   # 2020 NEXO
-  b'FE__ SCC FHCUP      1.00 1.03 99110-M5000\x19\x05#\x19B    ': ConfigValues(
-    "default config": b"\x00\x00\x00\x01\x00\x00",
-    "tracks_enabled": b"\x00\x00\x00\x01\x00\x01"),
+  b"FE__ SCC FHCUP      1.00 1.03 99110-M5000\x19\x05#\x19B    ": ConfigValues(
+    default config=b"\x00\x00\x00\x01\x00\x00",
+    tracks_enabled=b"\x00\x00\x00\x01\x00\x01"),
 }
 
 if __name__ == "__main__":
